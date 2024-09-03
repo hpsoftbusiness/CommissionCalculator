@@ -32,7 +32,7 @@ class CommissionCalculatorTest extends TestCase
         $this->exchangeRateClientMock->method('call')
             ->willReturn('{"success":true,"base":"EUR","date":"2024-09-02","rates":{"AUD":1.6322,"BGN":1.9558,"BRL":6.2185,"CAD":1.4932,"CHF":0.9415,"CNY":7.8677,"CZK":25.045,"DKK":7.4587,"GBP":0.84218,"HKD":8.6239,"HUF":392.55,"IDR":17189.79,"ILS":4.0415,"INR":92.8075,"ISK":153.1,"JPY":162.56,"KRW":1481.32,"MXN":21.7618,"MYR":4.8171,"NOK":11.73,"NZD":1.7767,"PHP":62.513,"PLN":4.275,"RON":4.9753,"SEK":11.351,"SGD":1.4464,"THB":37.834,"TRY":37.5814,"USD":1.1061,"ZAR":19.8166,"EUR":1}}');
         $result = $this->commissionCalculator->calculate($transactionFileContent);
-        $resultTest = [1, 0.45203869451225026, 0.6151574803149606, 1.1753006057318505, 23.747892374551757];
+        $resultTest = [1, 0.46, 0.62, 1.18, 23.75];
         $this->assertEquals($resultTest, $result);
     }
 
@@ -48,7 +48,7 @@ class CommissionCalculatorTest extends TestCase
         $this->exchangeRateClientMock->method('call')
             ->willReturn('{"success":true,"base":"EUR","date":"2024-09-02","rates":{"AUD":1.6322,"BGN":1.9558,"BRL":6.2185,"CAD":1.4932,"CHF":0.9415,"CNY":7.8677,"CZK":25.045,"DKK":7.4587,"GBP":0.84218,"HKD":8.6239,"HUF":392.55,"IDR":17189.79,"ILS":4.0415,"INR":92.8075,"ISK":153.1,"JPY":162.56,"KRW":1481.32,"MXN":21.7618,"MYR":4.8171,"NOK":11.73,"NZD":1.7767,"PHP":62.513,"PLN":4.275,"RON":4.9753,"SEK":11.351,"SGD":1.4464,"THB":37.834,"TRY":37.5814,"USD":1.1061,"ZAR":19.8166,"EUR":1}}');
         $result = $this->commissionCalculator->calculate($transactionFileContent);
-        $resultTest = [2.0, 0.9040773890245005, 1.2303149606299213, 2.350601211463701, 47.495784749103514];
+        $resultTest = [2.0, 0.92, 1.24, 2.36, 47.50];
         $this->assertEquals($resultTest, $result);
     }
 }

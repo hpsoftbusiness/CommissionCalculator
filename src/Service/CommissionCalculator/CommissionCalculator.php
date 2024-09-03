@@ -95,7 +95,7 @@ class CommissionCalculator
                 }
             }
 
-            $result[] = $amountFixed * ($isEu ? 0.01 : 0.02);
+            $result[] = ceil($amountFixed) * ($isEu ? 0.01 : 0.02);
         }
 
         return $result;
