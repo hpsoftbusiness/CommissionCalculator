@@ -22,3 +22,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Service\CommissionCalculator\HttpClient\BinClient:
+        public: true
+    App\Service\CommissionCalculator\HttpClient\ExchangeRateClient:
+        public: true
+    App\Service\CommissionCalculator\CommissionCalculator:
+        arguments:
+            $binClient: '@App\Service\CommissionCalculator\HttpClient\BinClient'
+            $exchangeRateClient: '@App\Service\CommissionCalculator\HttpClient\ExchangeRateClient'
