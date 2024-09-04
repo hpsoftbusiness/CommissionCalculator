@@ -1,0 +1,28 @@
+*****General purpose******
+The aim of this application is to calculate commissions based on txt file with performed transactions. Input file is
+located in public directory of the project and two external apis are used.
+
+****Sample input.txt file********
+{"bin":"45717360","amount":"100.00","currency":"EUR"}
+{"bin":"516793","amount":"50.00","currency":"USD"}
+{"bin":"45417360","amount":"10000.00","currency":"JPY"}
+{"bin":"41417360","amount":"130.00","currency":"USD"}
+{"bin":"4745030","amount":"2000.00","currency":"GBP"}
+
+****Sample terminal output*************
+1
+0.46180844185832
+1.6574127786525
+2.4014038976632
+43.714413735069
+
+***Application uses two api located in HttpClient - BinClient and ExchangeRateClient******
+BinClient - https://lookup.binlist.net - using simple file_get_contens but you can customize it for your needs using
+different api or for example symfony http client
+ExchangeRateClient - https://api.exchangeratesapi.io/latest - using simple file_get_contens but you can customize it
+for your needs using different api or for example symfony http client
+
+***Using application**********
+console command: php bin/console app:calculate-commission input.txt
+tests: ./vendor/bin/phpunit
+
